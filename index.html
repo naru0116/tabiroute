@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>たびルート</title>
-<meta name="description" content="行き先・行きたい場所・宿泊・移動手段を答えるだけで、旅の予定表とルート地図をつくります。友達と共有して、どこで合流するかも提案します。">
-<!-- ▼ 公開したら、次の2か所の https://YOUR-SITE-URL/ を自分のサイトのURLに書き換えてください（LINEで送ったときのプレビューに使われます） -->
-<meta property="og:url" content="https://YOUR-SITE-URL/">
-<meta property="og:image" content="https://YOUR-SITE-URL/og.png">
+<title>たびルート｜旅行の予定表を自動作成・友達との合流場所も提案する無料アプリ</title>
+<meta name="description" content="行き先と行きたい場所を選ぶだけで、旅行の予定表（旅程表）と回る順番のルート地図を自動で作成。全国47都道府県の人気観光スポット、朝・昼・夜のお店、ホテルも提案。LINEで友達と共有し、新幹線や飛行機でどこで合流するかも提案する無料の旅行計画アプリです。">
+<!-- ▼ サイトのURLを変えたときは、このページ内の https://naru0116.github.io/tabiroute/ をすべて書き換えてください -->
+<link rel="canonical" href="https://naru0116.github.io/tabiroute/">
+<meta property="og:url" content="https://naru0116.github.io/tabiroute/">
+<meta property="og:image" content="https://naru0116.github.io/tabiroute/og.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="たびルート｜旅の予定表と合流プランをつくる">
 <meta property="og:description" content="行きたい場所を答えるだけで、旅の予定表と回り方の地図をつくります。友達と共有して、どこで合流するかも提案します。">
@@ -15,6 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1F4E8C">
 <link rel="manifest" href="manifest.webmanifest">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "たびルート", "url": "https://naru0116.github.io/tabiroute/", "applicationCategory": "TravelApplication", "operatingSystem": "Web", "inLanguage": "ja", "image": "https://naru0116.github.io/tabiroute/og.png", "description": "行き先と行きたい場所を選ぶだけで、旅行の予定表と回る順番のルート地図を自動で作成する無料の旅行計画アプリ。友達とLINEで共有し、新幹線や飛行機での合流場所も提案します。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "featureList": ["旅行の予定表（旅程表）の自動作成", "回る順番のルート地図", "人気観光スポットの提案", "朝・昼・夜の飲食店の提案", "ホテル・宿泊エリアの提案", "LINEで友達と共有", "新幹線・飛行機での合流場所の提案"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "無料で使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。登録なしでも、すべての機能を無料で使えます。友達との共有を使う場合も料金はかかりません。"}}, {"@type": "Question", "name": "どんな予定表がつくれますか？", "acceptedAnswer": {"@type": "Answer", "text": "都道府県（市区町村）、日数、行きたい場所、宿泊先、移動手段（公共交通機関・車）を選ぶと、回る順番、到着時刻、移動時間、昼食の時間を入れた1日ごとの予定表と、ルートを書き込んだ地図を自動で作成します。"}}, {"@type": "Question", "name": "友達と別々の場所から出発しても使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。それぞれの自宅や最寄り駅を登録すると、新幹線・特急・飛行機・ローカル線から、現地集合・途中の駅で合流・車で迎えに行くなどの案を比べて、どこで合流するのが良いかを提案します。"}}, {"@type": "Question", "name": "予定表を友達と共有するには？", "acceptedAnswer": {"@type": "Answer", "text": "旅行の画面の「共有」から、LINEなどで招待リンクを送れます。リンクを開いた友達は、プランを一緒に見たり編集したり、自分の出発地を登録したりできます。"}}, {"@type": "Question", "name": "飲食店やホテルも入れられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。飲食店は朝食・昼食・夕食の時間帯を選ぶと、その時間に合わせて予定表に入ります。ホテルが決まっていない場合は、回りやすい宿泊エリアと周辺のホテルを提案します。"}}]}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="たびルート">
@@ -257,6 +259,21 @@ textarea{font:inherit;color:inherit;width:100%;border:1px solid var(--line);back
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:13.5px;opacity:0;pointer-events:none;transition:.25s;z-index:60;max-width:calc(100% - 32px)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:860px){ .ovgrid{grid-template-columns:1fr} }
+.about{margin-top:34px;padding-top:8px;border-top:1px solid var(--line)}
+.about h2{font-family:var(--f-disp);font-size:clamp(19px,2.6vw,23px);margin:26px 0 8px;text-wrap:balance}
+.about h3{font-size:15px;margin:0 0 4px}
+.about p{margin:0 0 10px;max-width:70ch;color:var(--ink)}
+.about .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.about .feat>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.about .feat p{font-size:13.5px;color:var(--muted);margin:0}
+.howto{padding-left:1.3em}.howto li{margin:4px 0}
+.faq details{border-bottom:1px solid var(--line);padding:10px 0}
+.faq summary{cursor:pointer;font-weight:700}
+.faq details p{margin:8px 0 0;color:var(--muted);font-size:14px}
+.about>h3{font-size:14px;color:var(--accent);margin:18px 0 6px}
+.prefs{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:4px 16px;margin:0}
+.prefs div{display:flex;gap:8px;font-size:13px;padding:3px 0;border-bottom:1px dotted var(--line)}
+.prefs dt{font-weight:700;min-width:4.5em;flex:none}.prefs dd{margin:0;color:var(--muted)}
 .sitefoot{margin:28px 0 0;padding-block:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--muted)}
 .sitefoot a{color:var(--muted)}
 .empty{border:1.5px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--muted);font-size:14px}
@@ -352,6 +369,25 @@ textarea{font:inherit;color:inherit;width:100%;border:1px solid var(--line);back
   <div id="pbar"></div>
   <nav class="stepper" id="stepper" aria-label="ステップ" hidden></nav>
   <main id="main"></main>
+<section class="about" id="about" aria-labelledby="aboutTitle">
+  <h2 id="aboutTitle">旅行の予定表を自動でつくる無料アプリ「たびルート」</h2>
+  <p>たびルートは、行き先と行きたい場所を選ぶだけで、旅行の予定表（旅程表）と回る順番のルート地図を自動で作成する無料の旅行計画アプリです。インストール不要で、スマホでもパソコンでもブラウザから使えます。</p>
+  <div class="feat">
+    <div><h3>予定表とルート地図を自動作成</h3><p>行きたい観光地を効率よく回る順番、到着時刻、移動時間を計算し、1日ごとの予定表と地図にします。公共交通機関と車のどちらにも対応しています。</p></div>
+    <div><h3>SNSで人気のスポットを提案</h3><p>全国47都道府県の定番観光スポットを人気順に提案。Instagramのハッシュタグ検索やGoogleマップもワンタップで開けます。</p></div>
+    <div><h3>朝・昼・夜のお店とホテル</h3><p>朝食・ランチ・ディナーの時間帯に合う飲食店や、その土地の名物のお店を提案。ホテルが未定なら、回りやすい宿泊エリアと周辺のホテルを探します。</p></div>
+    <div><h3>友達とLINEで共有</h3><p>招待リンクをLINEで送るだけで、旅行プランを一緒に編集できます。やることリストやメモも共有できます。</p></div>
+    <div><h3>どこで合流するかを提案</h3><p>別々の場所から出発する友達の、新幹線・特急・飛行機・ローカル線の経路を比べて、現地集合や途中の駅での合流など、最適な合流場所と出発時刻を提案します。</p></div>
+    <div><h3>自宅・最寄り駅を登録</h3><p>アカウントに自宅や最寄り駅を登録すると、旅行の出発地が自動で入ります。</p></div>
+  </div>
+  <h2>使い方</h2>
+  <ol class="howto"><li><b>行き先を選ぶ</b>：都道府県と市区町村、日数を選びます。</li><li><b>行きたい場所を選ぶ</b>：行きたい場所を入力するか、人気スポットや朝・昼・夜のお店から選びます。</li><li><b>宿泊と移動手段を選ぶ</b>：ホテルと移動手段を選ぶと、予定表とルート地図ができあがります。</li></ol>
+  <h2>よくある質問</h2>
+  <div class="faq"><details><summary>無料で使えますか？</summary><p>はい。登録なしでも、すべての機能を無料で使えます。友達との共有を使う場合も料金はかかりません。</p></details><details><summary>どんな予定表がつくれますか？</summary><p>都道府県（市区町村）、日数、行きたい場所、宿泊先、移動手段（公共交通機関・車）を選ぶと、回る順番、到着時刻、移動時間、昼食の時間を入れた1日ごとの予定表と、ルートを書き込んだ地図を自動で作成します。</p></details><details><summary>友達と別々の場所から出発しても使えますか？</summary><p>はい。それぞれの自宅や最寄り駅を登録すると、新幹線・特急・飛行機・ローカル線から、現地集合・途中の駅で合流・車で迎えに行くなどの案を比べて、どこで合流するのが良いかを提案します。</p></details><details><summary>予定表を友達と共有するには？</summary><p>旅行の画面の「共有」から、LINEなどで招待リンクを送れます。リンクを開いた友達は、プランを一緒に見たり編集したり、自分の出発地を登録したりできます。</p></details><details><summary>飲食店やホテルも入れられますか？</summary><p>はい。飲食店は朝食・昼食・夕食の時間帯を選ぶと、その時間に合わせて予定表に入ります。ホテルが決まっていない場合は、回りやすい宿泊エリアと周辺のホテルを提案します。</p></details></div>
+  <h2>都道府県別の人気観光スポット</h2>
+  <p>たびルートで提案している各地の定番スポットです。予定表をつくるときに、そのまま行き先に追加できます。</p>
+  <h3>北海道・東北</h3><dl class="prefs"><div><dt>北海道</dt><dd>小樽運河・函館山展望台・白金青い池・旭山動物園・ファーム富田</dd></div><div><dt>青森県</dt><dd>弘前公園・奥入瀬渓流・十和田湖・ねぶたの家 ワ・ラッセ・八甲田ロープウェー</dd></div><div><dt>岩手県</dt><dd>中尊寺・浄土ヶ浜・毛越寺・小岩井農場・盛岡城跡公園</dd></div><div><dt>宮城県</dt><dd>松島 瑞巌寺・仙台城跡・秋保大滝・蔵王 御釜・定義如来 西方寺</dd></div><div><dt>秋田県</dt><dd>角館武家屋敷通り・乳頭温泉郷 鶴の湯・田沢湖・男鹿真山伝承館・千秋公園</dd></div><div><dt>山形県</dt><dd>銀山温泉・山寺（立石寺）・蔵王温泉・羽黒山五重塔・上杉神社</dd></div><div><dt>福島県</dt><dd>大内宿・鶴ヶ城・五色沼・花見山公園・塔のへつり</dd></div></dl><h3>関東</h3><dl class="prefs"><div><dt>茨城県</dt><dd>国営ひたち海浜公園・大洗磯前神社（神磯の鳥居）・偕楽園・袋田の滝・筑波山</dd></div><div><dt>栃木県</dt><dd>日光東照宮・華厳の滝・中禅寺湖・大谷資料館・那須どうぶつ王国</dd></div><div><dt>群馬県</dt><dd>草津温泉 湯畑・伊香保温泉 石段街・富岡製糸場・谷川岳ロープウェイ・高崎白衣大観音</dd></div><div><dt>埼玉県</dt><dd>小江戸川越 蔵造りの町並み・川越氷川神社・長瀞ライン下り・秩父神社・鉄道博物館</dd></div><div><dt>千葉県</dt><dd>東京ディズニーリゾート・鋸山・成田山新勝寺・濃溝の滝・佐原の町並み</dd></div><div><dt>東京都</dt><dd>浅草寺・渋谷スクランブル交差点・東京スカイツリー・東京タワー・明治神宮</dd></div><div><dt>神奈川県</dt><dd>江の島・鎌倉大仏（高徳院）・横浜中華街・鶴岡八幡宮・横浜赤レンガ倉庫</dd></div></dl><h3>中部</h3><dl class="prefs"><div><dt>新潟県</dt><dd>清津峡渓谷トンネル・彌彦神社・佐渡金山・萬代橋・GALA湯沢</dd></div><div><dt>富山県</dt><dd>立山黒部アルペンルート 室堂・富岩運河環水公園・五箇山 相倉合掌造り集落・雨晴海岸・高岡大仏</dd></div><div><dt>石川県</dt><dd>兼六園・ひがし茶屋街・金沢21世紀美術館・近江町市場・白米千枚田</dd></div><div><dt>福井県</dt><dd>東尋坊・福井県立恐竜博物館・永平寺・一乗谷朝倉氏遺跡・丸岡城</dd></div><div><dt>山梨県</dt><dd>新倉山浅間公園（忠霊塔）・河口湖 大石公園・忍野八海・昇仙峡・富士急ハイランド</dd></div><div><dt>長野県</dt><dd>上高地 河童橋・松本城・善光寺・地獄谷野猿公苑・旧軽井沢銀座</dd></div><div><dt>岐阜県</dt><dd>白川郷 荻町合掌造り集落・飛騨高山 古い町並・モネの池・下呂温泉・新穂高ロープウェイ</dd></div><div><dt>静岡県</dt><dd>三保松原・城ヶ崎海岸 門脇つり橋・白糸の滝・日本平夢テラス・来宮神社</dd></div><div><dt>愛知県</dt><dd>名古屋城・熱田神宮・大須商店街・犬山城・博物館明治村</dd></div></dl><h3>近畿</h3><dl class="prefs"><div><dt>三重県</dt><dd>伊勢神宮 内宮・おかげ横丁・夫婦岩（二見興玉神社）・なばなの里・鳥羽水族館</dd></div><div><dt>滋賀県</dt><dd>白鬚神社・メタセコイア並木・彦根城・びわ湖テラス・ラ コリーナ近江八幡</dd></div><div><dt>京都府</dt><dd>伏見稲荷大社・清水寺・嵐山 竹林の小径・金閣寺・八坂神社・祇園</dd></div><div><dt>大阪府</dt><dd>道頓堀・ユニバーサル・スタジオ・ジャパン・大阪城・通天閣・新世界・海遊館</dd></div><div><dt>兵庫県</dt><dd>姫路城・北野異人館街・メリケンパーク・城崎温泉・竹田城跡</dd></div><div><dt>奈良県</dt><dd>奈良公園・東大寺・春日大社・興福寺・ならまち</dd></div><div><dt>和歌山県</dt><dd>那智の滝・高野山 奥之院・アドベンチャーワールド・円月島・金剛峯寺</dd></div></dl><h3>中国</h3><dl class="prefs"><div><dt>鳥取県</dt><dd>鳥取砂丘・水木しげるロード・白壁土蔵群・三徳山三佛寺 投入堂・大山</dd></div><div><dt>島根県</dt><dd>出雲大社・稲佐の浜・松江城・足立美術館・石見銀山</dd></div><div><dt>岡山県</dt><dd>倉敷美観地区・岡山後楽園・岡山城・備中松山城・吉備津神社</dd></div><div><dt>広島県</dt><dd>厳島神社・原爆ドーム・平和記念公園・尾道 千光寺・大久野島・弥山</dd></div><div><dt>山口県</dt><dd>角島大橋・元乃隅神社・錦帯橋・秋芳洞・萩城下町</dd></div></dl><h3>四国</h3><dl class="prefs"><div><dt>徳島県</dt><dd>大塚国際美術館・鳴門の渦潮（渦の道）・祖谷のかずら橋・大歩危峡・眉山</dd></div><div><dt>香川県</dt><dd>父母ヶ浜・金刀比羅宮・栗林公園・地中美術館・高屋神社（天空の鳥居）</dd></div><div><dt>愛媛県</dt><dd>道後温泉本館・松山城・下灘駅・来島海峡展望館・内子の町並み</dd></div><div><dt>高知県</dt><dd>桂浜・ひろめ市場・高知城・仁淀川 にこ淵・四万十川 佐田沈下橋</dd></div></dl><h3>九州・沖縄</h3><dl class="prefs"><div><dt>福岡県</dt><dd>太宰府天満宮・中洲屋台・糸島 桜井二見ヶ浦・門司港レトロ・宮地嶽神社</dd></div><div><dt>佐賀県</dt><dd>御船山楽園・武雄市図書館・祐徳稲荷神社・大魚神社の海中鳥居・唐津城</dd></div><div><dt>長崎県</dt><dd>ハウステンボス・グラバー園・稲佐山展望台・軍艦島・大浦天主堂</dd></div><div><dt>熊本県</dt><dd>熊本城・黒川温泉・阿蘇 草千里ヶ浜・大観峰・鍋ヶ滝</dd></div><div><dt>大分県</dt><dd>別府地獄めぐり・由布院 金鱗湖・湯の坪街道・九重“夢”大吊橋・宇佐神宮</dd></div><div><dt>宮崎県</dt><dd>高千穂峡・青島神社・鵜戸神宮・天岩戸神社・サンメッセ日南</dd></div><div><dt>鹿児島県</dt><dd>桜島・仙巌園・霧島神宮・天文館・指宿 砂むし温泉</dd></div><div><dt>沖縄県</dt><dd>沖縄美ら海水族館・古宇利大橋・国際通り・首里城公園・万座毛</dd></div></dl>
+</section>
   <p class="foot" id="foot">人気順は、SNSでよく投稿・検索される定番スポットをもとにした参考順位です（Instagramのリアルタイムの投稿数ではありません）。車の移動時間は道路の経路から計算し、電車・バスの移動時間は距離からの目安です。実際の所要時間は各区間の「経路」リンク（Googleマップ）で確認してください。</p>
   <p class="foot">地図：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>／場所・住所・ホテル情報：© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>（Nominatim・Overpass API）、国土地理院 地名検索／車の経路：<a href="https://project-osrm.org/" target="_blank" rel="noopener">OSRM</a>／写真：<a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a>（撮影者とライセンスは写真の上にマウスを置くか「詳細を見る」で表示）</p>
   <footer class="sitefoot"><a href="privacy.html">プライバシーポリシー</a><span>地図：国土地理院／地図データ：© OpenStreetMap contributors／写真：Wikimedia Commons</span></footer>
@@ -2555,6 +2591,7 @@ function parseCfg(t){ t=String(t||"").trim(); if(!t) return null; const m=t.matc
 /* ---------- 描画（全体） ---------- */
 function render(){
   renderTop();
+  const ab=$("#about"); if(ab) ab.hidden = !(APP.view==="home"||APP.view==="loading");
   const planMode = APP.view==="project" && (APP.ptab==="plan"||APP.ptab==="result") && S;
   $("#pbar").innerHTML = APP.view==="project" ? pbarHTML() : "";
   $("#stepper").hidden=!planMode; $("#navbar").hidden=!planMode; $("#resetBtn").hidden=!planMode;
