@@ -26,32 +26,37 @@
 
 ## 手順1：まずは共有なしで公開する（約10分）
 
-### 1-1. GitHubのアカウントを作る
-https://github.com/signup から無料で作成します。ユーザー名はサイトのURLに入ります（例：`tabi-taro`）。
+URLは **`https://tabiroute.github.io/`** です。自分のユーザー名が入らないように、無料の「組織（Organization）」を作って、その中に公開します。
+
+### 1-1. 組織を作る（無料）
+1. GitHubにログインし、右上の自分のアイコン →「Your organizations」→「New organization」。
+2. プランは **Free** の「Create a free organization」を選ぶ。
+3. Organization name に **`tabiroute`** と入力（これがURLになります）。連絡先メールを入れ、「My personal account」を選んで次へ。
+   - 「already taken」と出たら、その名前は使えません。`tabi-route` など別の名前にして、下の1-5を読んでください。
+4. メンバーの招待画面は「Skip this step」で進めてOKです。
 
 ### 1-2. 公開用の置き場所（リポジトリ）を作る
-1. GitHubにログインし、右上の「＋」→「New repository」。
-2. Repository name に `tabiroute` と入力。
-3. **Public** を選び、「Create repository」。
+1. 作った組織の画面で「Create a new repository」（または「Repositories」→「New repository」）。
+2. Owner が **tabiroute**（組織）になっていることを確認。
+3. Repository name に **`tabiroute.github.io`** と入力（組織名＋`.github.io` の形にするのが決まりです）。
+4. **Public** を選び、「Create repository」。
 
 ### 1-3. ファイルをアップロードする
 1. 作成した画面の「uploading an existing file」をクリック。
 2. このフォルダの**中身すべて**（`index.html`、`icons` フォルダなど）をドラッグ＆ドロップ。
-   - `.nojekyll` は見えないファイルです。Macは Finder で `Command + Shift + .` を押すと表示されます。
-   - アップロードできなくても動きます。
+   - `.nojekyll` は見えないファイルです。Macは Finder で `Command + Shift + .` を押すと表示されます。アップロードできなくても動きます。
 3. 下の「Commit changes」を押す。
 
-### 1-4. 公開をオンにする
+### 1-4. 公開を確認する
 1. リポジトリの「Settings」→ 左の「Pages」。
-2. 「Branch」を `main`、フォルダを `/ (root)` にして「Save」。
-3. 1〜2分待つと、上に公開URLが出ます。
-   `https://ユーザー名.github.io/tabiroute/`
+2. 「Branch」が `None` なら `main`・`/ (root)` を選んで「Save」。
+3. 1〜2分待って **https://tabiroute.github.io/** を開き、アプリが表示されれば公開完了です。
 
-これで、誰でも開いて使える状態になります（旅行はそれぞれの端末に保存）。
+以前作った `naru0116/tabiroute` のリポジトリは、Settings の一番下「Delete this repository」で削除してかまいません。残すと同じ内容のサイトが2つあることになり、検索で評価が分かれてしまいます。
 
-### 1-5. 公開URL（設定済み）
-`index.html` と `sitemap.xml` には、公開URL `https://naru0116.github.io/tabiroute/` を書き込み済みです。LINEのプレビューや検索エンジンが、このURLを使います。
-リポジトリ名などを変えてURLが変わったときは、両方のファイルの中にあるこのURLをすべて書き換えてください。
+### 1-5. URL（設定済み）
+`index.html` と `sitemap.xml` には `https://tabiroute.github.io/` を書き込み済みです。
+組織名を別の名前にした場合は、両方のファイルの中にある `https://tabiroute.github.io/` をすべて、`https://組織名.github.io/` に書き換えてください（GitHubの鉛筆マークで編集できます）。
 
 ### 1-6. プライバシーポリシーを書き換える
 `privacy.html` の【運営者名】【連絡先】と制定日を書き換えます。ログイン機能を使う場合は必須です。
@@ -72,7 +77,7 @@ https://github.com/signup から無料で作成します。ユーザー名はサ
 - **メール / パスワード**
 - **匿名**
 
-続けて「設定」タブ →「承認済みドメイン」→「ドメインを追加」で、`ユーザー名.github.io` を追加します。
+続けて「設定」タブ →「承認済みドメイン」→「ドメインを追加」で、`tabiroute.github.io` を追加します。
 
 ### 2-3. データベースを作る
 1. 「構築」→「Firestore Database」→「データベースを作成」。
@@ -126,7 +131,7 @@ const FIREBASE_CONFIG = {
   - LINEの中で開いている場合は、画面に出る「外部のブラウザで開く」を押してください。
 - **共有ボタンが「設定が必要」と出る**：`FIREBASE_CONFIG` の書き換えが保存されているか確認してください。公開に1〜2分かかります。
 - **写真が出ない**：写真の下の「再読み込み」を押してください。Wikipediaに写真がない場所は表示されません。
-- **LINEのプレビューが出ない**：手順1-5の書き換えを確認してください。LINEはプレビューを一時保存するため、反映まで時間がかかることがあります。
+- **LINEのプレビューが出ない**：手順1-5のURLが公開URLと一致しているか確認してください。LINEはプレビューを一時保存するため、反映まで時間がかかることがあります。
 
 ---
 
@@ -144,12 +149,12 @@ const FIREBASE_CONFIG = {
 公開しただけでは、Googleに見つけてもらえるまで何週間もかかることがあります。Google Search Console に登録すると早くなります。
 
 1. https://search.google.com/search-console を開き、Googleアカウントでログイン。
-2. 「プロパティを追加」→ 右側の **URLプレフィックス** に `https://naru0116.github.io/tabiroute/` を入力。
+2. 「プロパティを追加」→ 右側の **URLプレフィックス** に `https://tabiroute.github.io/` を入力。
 3. 所有権の確認で「**HTMLタグ**」を選び、表示された `<meta name="google-site-verification" content="……">` をコピー。
 4. GitHubで `index.html` を編集し、`<link rel="canonical"` の行のすぐ上に貼り付けて「Commit changes」。
 5. 1〜2分待ってから Search Console に戻り、「確認」を押す。
 6. 左のメニュー「サイトマップ」で `sitemap.xml` と入力して「送信」。
-7. 上の検索窓に `https://naru0116.github.io/tabiroute/` を入れ、「インデックス登録をリクエスト」を押す。
+7. 上の検索窓に `https://tabiroute.github.io/` を入れ、「インデックス登録をリクエスト」を押す。
 
 Bing にも出したい場合は、https://www.bing.com/webmasters で「Google Search Console からインポート」を選ぶだけで登録できます。
 
